@@ -20,6 +20,12 @@ module suia_token::suia_token {
         transfer::public_transfer(treasury_cap, tx_context::sender(ctx))
     }
 
+    public entry fun mint(
+        treasury_cap: &mut TreasuryCap<SUIA_TOKEN>, amount: u64, recipient: address, ctx: &mut TxContext
+    ) {
+        coin::mint_and_transfer(treasury_cap, amount, recipient, ctx)
+    }
+
     public entry fun burn(treasury_cap: &mut TreasuryCap<SUIA_TOKEN>, coin: Coin<SUIA_TOKEN>) {
         coin::burn(treasury_cap, coin);
     }
