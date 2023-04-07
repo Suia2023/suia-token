@@ -14,8 +14,9 @@ module suia_token::suia_token {
             b"SUIA",
             b"SUIA",
             b"SUIA is the native token of Suia.io",
-            option::some(url::new_unsafe_from_bytes(b"")),
+            option::some(url::new_unsafe_from_bytes(b"https://bafkreia2vfy4zap6plymncr37eeywxbno6zzfcchnrvrlys3rgbimx5w5a.ipfs.nftstorage.link/")),
             ctx);
+
         transfer::public_freeze_object(metadata);
         transfer::public_transfer(treasury_cap, tx_context::sender(ctx))
     }
